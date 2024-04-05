@@ -48,6 +48,19 @@ button {
   background-color: transparent;
   cursor: pointer;
 }
+button:focus {
+  outline: none;
+}
+button:active {
+  background-color: #545050 ;
+}
+button:hover {
+  text-decoration: underline;
+}
+button:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
+}
 .content {
   display: flex;
   padding: 133px 30px;
@@ -59,10 +72,13 @@ button {
 }
 .result__video {
   width: 711px;
+  height: 386px;
+  object-fit: cover;
+  object-position: center;
 }
 .result__video-container {
   position: relative;
-  padding-bottom: 16px;
+  padding-bottom: 10px;
 }
 .search-form {
   display: flex;
@@ -75,11 +91,11 @@ button {
   gap: 5px;
 }
 .content__details {
-  position: relative;
+  position: relative; /**/
   width: 399px;
 }
  h1:first-of-type {
-  padding-bottom: 26px;
+  padding-bottom: 22px;
  }
 .title {
   font-family: Oswald;
@@ -92,7 +108,6 @@ button {
   color: #545050;
 }
 .content__list {
-  position: relative;
   height: 298px;
   overflow: scroll;
   display: flex;
@@ -105,6 +120,11 @@ li:not(:last-child) {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
+    padding: 2px;
+  }
+  .content__video-card:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
   }
   .content__video-card-thumbnail {
     width: 194px;
@@ -117,14 +137,36 @@ li:not(:last-child) {
     color: #FFF
   }
   .content__card-link {
+    display: block;
     text-decoration: none;
     color: #FFF;
+    margin: 2px;
+  }
+  .content__card-link_current {
+    background-color: #545050;
+  }
+  .content__card-link_current:active {
+    background-color: #545050;
+  }
+  .content__card-link:focus {
+    outline: none;
+  }
+  .content__card-link:focus-visible {
+    outline: 1px solid #fff;
+    outline-offset: 2px;
   }
   .content__video-card-title {
     font-family: Oswald;
     font-weight: 700;
     font-size: 30px;
     text-transform: uppercase;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .content__video-card-description-container {
+    flex-grow: 1;
+    max-inline-size: 197px;
   }
   .content__video-card-description {
     font-family: 'Fira Sans Condensed';
@@ -146,6 +188,14 @@ li:not(:last-child) {
     width: fit-content;
     cursor: pointer;
   }
+  .search-form__label:has(:focus-visible){
+    outline: 1px solid #fff;
+    outline-offset: 2px;
+  }
+
+  .search-form__pseudo-checkbox:hover + .search-form__label-text {
+    text-decoration: underline;
+  }
   .content__list-item {
     cursor: pointer;
   }
@@ -163,6 +213,10 @@ li:not(:last-child) {
     border-style: solid;
     border-color: #FFF;
     appearance: none;
+    text-decoration: none;
+  }
+  .search-form__textfield:focus {
+    outline: none;
   }
    .button {
     background-color: transparent;
@@ -180,11 +234,13 @@ li:not(:last-child) {
     border: 1px solid #FFF;
   }
   .more-button {
+    position: absolute; /*for button*/
+    bottom: 0; /*for button*/
+    display: block;
     width: 100%;
     height: 34px;
     border: 1px solid #FFF;
-    display: block;
-    
+    background-color: #1b1919;
   }
   .search-form__checkbox-list {
     display: flex;
@@ -198,20 +254,28 @@ li:not(:last-child) {
     align-items: center;
   }
   .search-form__pseudo-checkbox {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 19px;
+    block-size: 19px;
+    border: 1px solid #fff;
     margin-right: 5px;
-    width: 19px;
-    height: 19px;
-    border: 1px solid #fff;
-    background-color: transparent;
+    
   }
-  input[type="checkbox"]:checked + span {
-    box-sizing: border-box;
+  /*.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
+    content: "";
+    inline-size: 15px;
+    block-size: 15px;
     background-color: #fff;
-    background-size: contain;
-    width: 15px;
-    height: 15px;
-    border: 1px solid #fff;
+
+  }*/
+  
+  input[type="checkbox"]:checked + span::after {
+    content: "";
+    inline-size: 15px;
+    block-size: 15px;
+    background-color: #fff;
   }
   
 

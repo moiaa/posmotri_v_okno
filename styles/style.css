@@ -95,6 +95,7 @@ ol {
 }
 
 .content__list {
+  position: relative;
   height: 298px;
   overflow: auto;
   display: flex;
@@ -109,13 +110,12 @@ ol {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
-  padding: 2px;
 }
 
 .content__video-card-thumbnail {
   width: 194px;
   height: 103px;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .search-form__fieldset-title {
@@ -131,7 +131,9 @@ ol {
   text-decoration: none;
   color: #FFF;
   margin: 2px;
+  cursor: pointer;
 }
+
 .content__card-link:hover {
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -144,7 +146,6 @@ ol {
 .content__card-link_current {
   background-color: #545050;
 }
-
 
 .content__card-link:focus {
   outline: none;
@@ -194,17 +195,13 @@ ol {
   cursor: pointer;
 }
 
-.search-form__label:has(:focus-visible){
+.search-form__label:has(:focus-visible) {
   outline: 1px solid #fff;
   outline-offset: 2px;
 }
 
-.search-form__label:hover  {
+.search-form__label:hover .search-form__label-text {
   text-decoration: underline;
-}
-
-.content__list-item {
-  cursor: pointer;
 }
 
 .search-form__textfield {
@@ -253,19 +250,19 @@ ol {
   width: 100%;
 }
 
-button:focus {
+.button:focus {
   outline: none;
 }
 
-button:active {
+.button:active {
   background-color: #545050 ;
 }
 
-button:hover {
+.button:hover {
   text-decoration: underline;
 }
 
-button:focus-visible {
+.button:focus-visible {
   outline: 1px solid #fff;
   outline-offset: -3px;
 }
@@ -291,6 +288,5 @@ button:focus-visible {
   inline-size: 15px;
   block-size: 15px;
   background-color: #fff;
-
 }
 
